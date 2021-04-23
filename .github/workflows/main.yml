@@ -32,7 +32,6 @@ jobs:
       - name: Setup NPM
         run: |
           npm install
-          npm start
           npm test
           npm run cover
           bash <(curl -s https://codecov.io/bash)
