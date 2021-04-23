@@ -34,5 +34,5 @@ jobs:
           npm install
           npm test
           npm run cover
-          echo $CODECOV_TOKEN
-          bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+          echo ${{secrets.CODECOV_TOKEN}}
+          bash <(curl -s https://codecov.io/bash) -t ${{secrets.CODECOV_TOKEN}}
