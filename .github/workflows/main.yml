@@ -33,7 +33,6 @@ jobs:
         run: |
           npm install
           npm start
-          node app --location Newcastle
           npm test
           npm run cover
           bash <(curl -s https://codecov.io/bash)
