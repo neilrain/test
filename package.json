@@ -15,7 +15,9 @@
     "url": "https://github.com/nsatnarain/test/issues"
   },
   "homepage": "https://github.com/nsatnarain/test#readme",
-  "dependencies": {},
+  "dependencies": {
+    "yarn": "^1.22.10"
+  },
   "devDependencies": {
     "jest": "^26.6.3"
   },
