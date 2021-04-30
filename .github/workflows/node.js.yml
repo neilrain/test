@@ -11,20 +11,16 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x, 15.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - name: Checkout code
-    - uses: actions/checkout@develop
-
+      uses: actions/checkout@main
     - name: Run Codacy Analysis CLI
-    - uses: codacy/codacy-analysis-cli-action@master
+      uses: codacy/codacy-analysis-cli-action@master
       with:
         output: results.sarif
         format: sarif
@@ -36,12 +32,12 @@ jobs:
         
     # Upload the SARIF file generated in the previous step
     - name: Upload SARIF results file
-    - uses: github/codeql-action/upload-sarif@main
+      uses: github/codeql-action/upload-sarif@main
       with:
         sarif_file: results.sarif
         
     - name: Use Node.js ${{ matrix.node-version }}
-    - uses: actions/setup-node@v2
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
