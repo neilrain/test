@@ -1,5 +1,6 @@
 var fs = require('fs');
 
+
 class FileManager {
     constructor(fileName){
         this.fileName = fileName;
