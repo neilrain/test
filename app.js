@@ -12,6 +12,14 @@ class FileManager {
 
         return fs.existsSync(this.fileName);
     }
+
+    get() {
+
+        fs.appendFile(this.fileName, 'Hello content!', function (err) {
+        });
+
+        return fs.existsSync(this.fileName);
+    }
 }
 
 
