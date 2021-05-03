@@ -20,6 +20,15 @@ class FileManager {
 
         return fs.existsSync(this.fileName);
     }
+    /*
+    update() {
+
+        fs.appendFile(this.fileName, 'Hello content!', function (err) {
+        });
+
+        return fs.existsSync(this.fileName);
+    }
+    */
 }
 
 
