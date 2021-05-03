@@ -10,15 +10,19 @@ on:
     branches: [ develop ]
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: setup
+      uses: actions/checkout@main 
   build:
+    needs: setup
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [15.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-    - name: Build
-      uses: actions/checkout@main 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
