@@ -42,6 +42,7 @@ jobs:
      needs: unit-test
      runs-on: ubuntu-latest
      steps:
+     - uses: actions/checkout@main
      - name: Executing static code analysis
        uses: SonarSource/sonarcloud-github-action@master
        env:
