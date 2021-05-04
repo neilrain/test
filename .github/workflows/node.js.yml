@@ -39,14 +39,16 @@ jobs:
     - run: npm i -g yarn
     - run: yarn jest
   code-analysis:
-     needs: unit-test
-     runs-on: ubuntu-latest
-     steps:
-     - uses: actions/checkout@main
-     - name: Executing static code analysis
-       uses: SonarSource/sonarcloud-github-action@master
-       env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    needs: unit-test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   build-image:
     needs: code-analysis
     runs-on: ubuntu-latest
