@@ -62,5 +62,5 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: docker -t test-image .
+    - run: docker build -t test-image .
     
